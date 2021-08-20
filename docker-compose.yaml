@@ -3,6 +3,9 @@ version: "3.8"
 services:
   albumviewer:
     image: petercharles/albumviewer:v1
+    build:
+      context: .
+      dockerfile: Dockerfile
     ports:
       - 8000:80
     environment:
