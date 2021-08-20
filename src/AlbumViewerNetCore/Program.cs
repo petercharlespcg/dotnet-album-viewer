@@ -21,7 +21,7 @@ namespace AlbumViewerNetCore
 		{
 			return WebHost.CreateDefaultBuilder(args)
 				.UseStartup<Startup>()
-				//.UseUrls("http://*:80") // Peter added 
+				.UseUrls("http://*:80") // Peter added 
 				.Build();
 		}
 
