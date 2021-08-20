@@ -1,0 +1,14 @@
+version: "3.8"
+
+services:
+  albumviewer:
+    image: petercharles/albumviewer:v1
+    ports:
+      - 8000:80
+    environment:
+      - "Data:Provider=MySQL"
+      - "Data:ConnectionString=Server=database;Port=4000;Database=AlbumViewer;User=root;SslMode=None"
+
+  database:
+    image: dockersamples/tidb:nanoserver-sac2016
+
