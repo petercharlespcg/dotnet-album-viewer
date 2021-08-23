@@ -1,5 +1,6 @@
 # FROM mcr.microsoft.com/dotnet/core/sdk:2.1 AS BUILD
-FROM sdk:2.1 AS BUILD
+# FROM sdk:2.1 AS BUILD
+FROM peterreg.azurecr.io/petercharles/sdk:2016-2.1 AS BUILD
 WORKDIR /album-viewer
 COPY . .
 RUN dotnet restore src/AlbumViewerNetCore/AlbumViewerNetCore.csproj
