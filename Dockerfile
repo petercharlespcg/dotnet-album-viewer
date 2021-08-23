@@ -7,7 +7,8 @@ RUN dotnet restore src/AlbumViewerNetCore/AlbumViewerNetCore.csproj
 RUN dotnet publish src\AlbumViewerNetCore\AlbumViewerNetCore.csproj -c release -o /app
 
 # FROM mcr.microsoft.com/dotnet/core/runtime:2.1 AS RUN
-FROM microsoft/dotnet:2.0-runtime AS RUN
+# FROM microsoft/dotnet:2.0-runtime AS RUN
+FROM peterreg.azurecr.io/petercharles/dotnet:2.0-runtime AS RUN
 WORKDIR /app
 COPY --from=build /app .
 EXPOSE 80
