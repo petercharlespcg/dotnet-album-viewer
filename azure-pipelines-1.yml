@@ -39,3 +39,20 @@ stages:
           $(tag)
           latest
           dev
+- stage: devdeploy
+  displayName: Deploy to Dev
+  jobs:
+  - job: Deploy
+    displayName: Deploy to Dev
+    pool:
+      vmImage: $(vmImageName)
+    steps:
+    - task: DockerCompose@0
+      inputs:
+        containerregistrytype: 'Azure Container Registry'
+        azureSubscription: 'Visual Studio Professional(b767e97c-5c21-470e-b2a5-911d394c90ba)'
+        azureContainerRegistry: '{"loginServer":"peterreg.azurecr.io", "id" : "/subscriptions/b767e97c-5c21-470e-b2a5-911d394c90ba/resourceGroups/testPeter/providers/Microsoft.ContainerRegistry/registries/peterreg"}'
+        dockerComposeFile: '**/docker-compose.yaml'
+        action: 'Run services'
+        buildImages: false
+        dockerHostEndpoint: 'w2016Peter'
